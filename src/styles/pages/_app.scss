@@ -1,0 +1,21 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2em 2.5em;
+  gap: 1em;
+}
+.main-container {
+  border: red 2px solid;
+  height: 100%;
+}
+
+.horizontal-container {
+  display: flex;
+  width: 100%;
+}
+
+.graphs-container {
+  border: solid 2px purple;
+  height: 20em;
+}

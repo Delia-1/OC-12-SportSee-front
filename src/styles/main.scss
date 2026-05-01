@@ -1,0 +1,66 @@
+@use "./abstracts/variables";
+@use "./abstracts/mixins";
+
+@use "./pages/app";
+
+@use "./components/header";
+@use "./components/sidebar";
+@use "./components/welcome";
+// @use "./components/card";
+// @use "./components/collapse";
+// @use "./components/slideshow";
+// @use "./components/tag";
+// @use "./components/rating";
+
+@use "./abstracts/variables" as *;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  // font-family: $font-text;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // color: $black;
+  line-height: 1.43;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-container {
+  // margin: 0 $spacing-xl;
+  margin: 0 50px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+// p,
+// a,
+// small,
+// h1,
+// h2,
+// h3,
+// li {
+//   font-family: $font-text;
+// }
+
+a {
+  text-decoration: none;
+}
