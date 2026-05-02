@@ -1,4 +1,35 @@
-.container-header {
-  border: 1px solid green;
-  margin: 5px 0 0 0;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // border: 1px solid green;
+  margin: 0;
+  padding: 16px 28px;
+  background-color: $bg-dark;
+
+  &__logo-wrapper {
+    width: 178px;
+    height: 61px;
+  }
+
+  &__logo {
+    width: 100%;
+    padding: 0;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 13rem;
+    margin-right: 3.8rem;
+  }
+
+  &__navLink {
+    font-family: $font-text;
+    font-weight: 500;
+    font-size: $font-size-lg;
+    color: $white;
+  }
 }

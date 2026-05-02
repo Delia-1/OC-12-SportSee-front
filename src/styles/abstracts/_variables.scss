@@ -1,0 +1,53 @@
+// colors var
+$black: #000000;
+$bg-dark: #020203;
+$white: #ffffff;
+$red: #ff6060;
+$grey: #f6f6f673;
+$light-grey: #f6f6f6;
+
+$font-text: "Roboto";
+
+// TYPOGRAPHY SCALE
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.8125rem; // 13px
+$font-size-base: 0.875rem; // 14px
+$font-size-md: 1.125rem; // 18px
+$font-size-lg: 1.5rem; // 24px
+$font-size-xl: 2.25rem; // 36px
+$font-size-2xl: 3rem; // 48px
+$font-size-3xl: 6rem; // 96px
+$font-size-4xl: 18rem; // 288px (error page)
+
+// SPACING SCALE
+$spacing-xxs: 0.38rem; // 6.8px
+$spacing-xs: 0.4375rem; // 7px
+$spacing-sm: 0.625rem; // 10px
+$spacing-md: 0.75rem; // 12px
+$spacing-lg: 0.9375rem; // 15px
+$spacing-xl: 1.25rem; // 20px
+$spacing-2xl: 1.5rem; // 24px
+$spacing-2-5xl: 2rem; // 32px
+$spacing-3xl: 2.25rem; // 36px
+$spacing-3-5xl: 3.2rem; // 51.2px
+$spacing-4xl: 3.6rem; // 57.6px
+$spacing-5xl: 5rem; // 80px
+$spacing-6xl: 6rem; // 96px
+
+// DIMENSIONS (rem)
+$footer-height-mobile: 13em;
+$banner-height-mobile: 6.9375rem;
+$banner-height-desktop: 13.5rem;
+$slideshow-height-desktop: 25.9375rem;
+$card-height-mobile: 16em;
+$card-height-desktop: 21em;
+$error-message-mt-desktop: 11rem;
+
+// RADIUS
+$radius-sm: 5px;
+$radius-md: 10px;
+$radius-lg: 25px;
+
+// BREAKPOINTS (px for media queries)
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;
