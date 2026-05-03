@@ -1,5 +1,31 @@
+import yoga from "../assets/yoga.svg";
+import swim from "../assets/swim.svg";
+import bike from "../assets/bike.svg";
+import lift from "../assets/lift.svg";
+
 const Sidebar = () => {
-  return <div className="container-sidebar">sidebar</div>;
+  const sportTiles = [
+    { name: "yoga", icon: yoga },
+    { name: "swim", icon: swim },
+    { name: "bike", icon: bike },
+    { name: "lift", icon: lift },
+  ];
+
+  return (
+    <div className="sidebar">
+      <div className="sidebar__content">
+        {sportTiles.map((tile, index) => (
+          <img
+            key={`${index}-${tile.name}`}
+            className="sidebar__tile"
+            src={tile.icon}
+            alt={`${tile.name} icon`}
+          />
+        ))}
+      </div>
+      <small className="sidebar__copyright">Copiryght, SportSee 2020</small>
+    </div>
+  );
 };
 
 export default Sidebar;

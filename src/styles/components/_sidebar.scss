@@ -1,6 +1,36 @@
-.container-sidebar {
-  border: 1px solid blue;
-  max-width: 15%;
-  height: 100vh;
-  margin: 0;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 1.66rem;
+  max-width: 117px;
+  height: 100%;
+  background-color: $bg-dark;
+
+  &__content {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    // justify-content: center;
+    width: 64px;
+    // flex: ;
+    // margin-bottom: 1rem;
+    // bottom: 1rem;
+  }
+  &__tile {
+    width: 64px;
+  }
+
+  &__copyright {
+    transform: rotate(90deg);
+    color: $white;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap; // ← Force le texte sur une seule ligne
+  }
 }

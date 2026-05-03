@@ -13,20 +13,27 @@
 // @use "./components/rating";
 
 @use "./abstracts/variables" as *;
+html {
+  height: 100%;
+  width: 100%;
+}
 
 html,
 body {
   margin: 0;
   padding: 0;
-  // font-family: $font-text;
   font-size: 16px;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  // color: $black;
+  height: 100vh;
   line-height: 1.43;
 }
 
@@ -34,15 +41,15 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: 100%;
 }
 
 .main-container {
-  // margin: 0 $spacing-xl;
-  margin: 0 0;
-
+  margin: 0;
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: 100%;
 }
 
 h1,
@@ -51,15 +58,15 @@ h3 {
   margin: 0;
 }
 
-// p,
-// a,
-// small,
-// h1,
-// h2,
-// h3,
-// li {
-//   font-family: $font-text;
-// }
+p,
+a,
+small,
+h1,
+h2,
+h3,
+li {
+  font-family: $font-text;
+}
 
 a {
   text-decoration: none;
