@@ -16,6 +16,7 @@ const Welcome = () => {
     fetchUser();
   }, [userId]);
   if (loading) return <p>Chargement...</p>;
+  if (!user) return <p>Utilisateur introuvable</p>;
 
   const userFirstName = user.userInfos.firstName;
 

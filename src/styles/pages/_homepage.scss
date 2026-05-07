@@ -1,0 +1,36 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.graphs-section {
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.5rem;
+  height: 100vh;
+
+  .rows-container {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &__first {
+      border: 1px solid rgb(169, 88, 7);
+      width: 835px;
+      height: 320px;
+    }
+
+    &__last {
+      border: 1px solid green;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      width: 835px;
+      height: 320px;
+    }
+  }
+
+  &__nutrition {
+    border: 1px solid pink;
+  }
+}

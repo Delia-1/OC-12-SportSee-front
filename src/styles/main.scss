@@ -2,12 +2,12 @@
 @use "./abstracts/mixins";
 
 @use "./pages/app";
+@use "./pages/homepage";
 
 @use "./components/header";
 @use "./components/sidebar";
 @use "./components/welcome";
-// @use "./components/card";
-// @use "./components/collapse";
+@use "./components/card";
 // @use "./components/slideshow";
 // @use "./components/tag";
 // @use "./components/rating";

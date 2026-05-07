@@ -1,4 +1,5 @@
 import Welcome from "../components/Welcome";
+import Card from "../components/Card";
 
 const Homepage = () => {
   return (
@@ -7,17 +8,23 @@ const Homepage = () => {
         <Welcome />
       </section>
       {/* d-block ici */}
-      <div className="graphs-container">
-        <section>{/* <Poids /> */}</section>
-        <section>
-          {/* <Objectif /> */}
-          {/* <Radar /> */}
-          {/* <Kpi /> */}
-        </section>
-        <section>
-          {/* map */}
+      <div className="graphs-section">
+        <div className="rows-container">
+          <section className="rows-container__first">{/* <Poids /> */}</section>
+          <section className="rows-container__last">
+            {/* <Objectif /> */}
+            <Card />
+            <Card />
+            <Card />
+            {/* <Radar /> */}
+            {/* <Kpi /> */}
+          </section>
+        </div>
+
+        <section className="graphs-section__nutrition">
+          {/* je dois faire un map */}
           {/* <Nutrion /> */}
-          {/* * calories proteine lipide glucide */}
+          {/* * cards categories: calories proteine lipide glucide */}
         </section>
       </div>
     </main>

@@ -1,0 +1,8 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.graphCard {
+  border: 1px solid black;
+  width: 258px;
+  height: 263px;
+}
