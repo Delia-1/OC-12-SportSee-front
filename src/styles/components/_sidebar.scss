@@ -5,14 +5,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0 1.66rem;
-  max-width: 117px;
+  width: 117px;
   height: 100%;
   background-color: $bg-dark;
+  overflow: hidden;
+  min-height: stretch;
+  gap: 20%;
+  flex-shrink: 0;
 
   &__content {
-    margin-top: 8rem;
+    padding-top: 6%;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -23,7 +27,7 @@
   }
 
   &__copyright {
-    transform: rotate(90deg);
+    transform: rotate(270deg);
     color: $white;
     font-size: 12px;
     font-weight: 500;

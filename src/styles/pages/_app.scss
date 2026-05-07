@@ -1,3 +1,11 @@
+.horizontal-container {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -5,20 +13,9 @@ main {
   padding: 2.5em 6.5em;
   gap: 1em;
   flex: 1;
-  overflow: auto;
-}
-.main-container {
-  border: red 2px solid;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.horizontal-container {
-  display: flex;
-  width: 100%;
-  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .graphs-container {

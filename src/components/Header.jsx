@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__logo-wrapper">
-        <img className="header__logo" src={logoSportSee} alt="logo site" />y
+        <img className="header__logo" src={logoSportSee} alt="logo site" />
       </div>
       <nav className="header__nav">
         {links.map((link, index) => (
