@@ -9,7 +9,7 @@ function App() {
       <div className="horizontal-container">
         <Sidebar />
         <main>
-          <section className="welcome">
+          <section className="welcome-section">
             <Welcome />
           </section>
           {/* d-block ici */}

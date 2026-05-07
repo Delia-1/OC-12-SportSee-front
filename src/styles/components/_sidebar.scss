@@ -16,11 +16,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    // justify-content: center;
     width: 64px;
-    // flex: ;
-    // margin-bottom: 1rem;
-    // bottom: 1rem;
   }
   &__tile {
     width: 64px;
@@ -31,6 +27,6 @@
     color: $white;
     font-size: 12px;
     font-weight: 500;
-    white-space: nowrap; // ← Force le texte sur une seule ligne
+    white-space: nowrap;
   }
 }

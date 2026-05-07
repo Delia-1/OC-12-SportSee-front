@@ -1,5 +1,23 @@
-.container-welcome {
-  border: 1px solid orange;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.welcome {
   width: 80%;
   height: 10rem;
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: 500;
+
+    &--span {
+      font-size: $font-size-2xl;
+      font-weight: 500;
+      color: $red;
+    }
+  }
+
+  &__message {
+    font-size: $font-size-md;
+    font-weight: 500;
+  }
 }
