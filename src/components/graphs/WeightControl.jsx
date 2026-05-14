@@ -23,7 +23,7 @@ const WeightControl = ({ user }) => {
   return (
     <div>
       <h3>Session 1</h3>
-      <p>{`day: ${activity.sessions[0].day}`}</p>
+      <p className="test">{`day: ${activity.sessions[0].day}`}</p>
       <p>{`kg: ${activity.sessions[0].kilogram}`}</p>
       <p>{`Calories:: ${activity.sessions[0].calories}`}</p>
     </div>

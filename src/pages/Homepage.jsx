@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getUser } from "../mockedApi";
 
 import { useParams } from "react-router-dom";
+import AverageSession from "../components/graphs/AverageSessions";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -41,7 +42,8 @@ const Homepage = () => {
           </section>
           <section className="rows-container__last">
             {/* <Objectif /> */}
-            <Card />
+            {/* <Card /> */}
+            <AverageSession user={userId} />
             <Card />
             <Card />
             {/* <Radar /> */}

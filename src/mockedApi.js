@@ -52,3 +52,18 @@ export const getAverageSessions = async (id) => {
     (averageSessions) => averageSessions.userId === Number(id),
   );
 };
+
+export const getAverageSessionsByApi = async (id) => {
+  try {
+    const reponse = await fetch(`${API_URL}/user/${id}/average-sessions`);
+    if (!reponse.ok) {
+      throw new Error(`Statut de réponse : ${reponse.status}`);
+    }
+
+    const result = await reponse.json();
+    console.log(result);
+    return result.data;
+  } catch (erreur) {
+    console.error(erreur.message);
+  }
+};

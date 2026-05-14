@@ -8,11 +8,13 @@
 @use "./components/sidebar";
 @use "./components/welcome";
 @use "./components/card";
-// @use "./components/slideshow";
-// @use "./components/tag";
+@use "./components/graphs/weightControl";
+
+@use "./components/graphs/averageSessions";
 // @use "./components/rating";
 
 @use "./abstracts/variables" as *;
+
 html {
   height: 100%;
   width: 100%;
