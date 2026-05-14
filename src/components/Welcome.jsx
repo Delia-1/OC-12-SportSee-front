@@ -1,23 +1,4 @@
-import { useEffect, useState } from "react";
-import { getUser } from "../mockedApi";
-import { useParams } from "react-router-dom";
-
-const Welcome = () => {
-  const { userId } = useParams();
-  const [user, setUSer] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const userData = await getUser(userId);
-      setUSer(userData);
-      setLoading(false);
-    };
-    fetchUser();
-  }, [userId]);
-  if (loading) return <p>Chargement...</p>;
-  if (!user) return <p>Utilisateur introuvable</p>;
-
+const Welcome = ({ user }) => {
   const userFirstName = user.userInfos.firstName;
 
   return (
