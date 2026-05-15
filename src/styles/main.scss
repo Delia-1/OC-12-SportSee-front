@@ -7,11 +7,12 @@
 @use "./components/header";
 @use "./components/sidebar";
 @use "./components/welcome";
-@use "./components/card";
-@use "./components/graphs/weightControl";
+@use "./components/nutrition";
 
+@use "./components/graphs/weightControl";
 @use "./components/graphs/averageSessions";
 @use "./components/graphs/activityRadar";
+@use "./components/graphs/nutritionCard";
 
 // @use "./components/rating";
 

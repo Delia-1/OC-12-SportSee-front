@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import AverageSession from "../components/graphs/AverageSessions";
 import ActivityRadar from "../components/graphs/ActivityRadar";
 import DailyScore from "../components/graphs/DailyScore";
+import Nutrition from "../components/Nutrition";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -28,6 +29,7 @@ const Homepage = () => {
   }, [userId]);
 
   if (loading) return <p>Chargement...</p>;
+const nutritionData = user.keyData;
   if (!user) return <p>Utilisateur introuvable</p>;
 
   return (
@@ -50,7 +52,7 @@ const Homepage = () => {
 
         <section className="graphs-section__nutrition">
           {/* je dois faire un map */}
-          {/* <Nutrion /> */}
+          <Nutrition nutritionData={nutritionData} isMockedApi={isMockedApi} />
           {/* * cards categories: calories proteine lipide glucide */}
         </section>
       </div>
