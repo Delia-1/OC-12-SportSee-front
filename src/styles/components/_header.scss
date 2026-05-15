@@ -3,15 +3,14 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  // border: 1px solid green;
-  margin: 0;
   padding: 16px 28px;
   background-color: $bg-dark;
+  gap: 2rem;
 
   &__logo-wrapper {
     width: 178px;
+    min-width: 178px;
     height: 61px;
   }
 
@@ -21,9 +20,10 @@
   }
 
   &__nav {
+    flex: 1;
     display: flex;
-    gap: 13rem;
-    margin-right: 3.8rem;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   &__navLink {
@@ -31,5 +31,6 @@
     font-weight: 500;
     font-size: $font-size-lg;
     color: $white;
+    white-space: nowrap;
   }
 }
