@@ -2,8 +2,7 @@ import Welcome from "../components/Welcome";
 import WeightControl from "../components/graphs/WeightControl";
 
 import { useEffect, useState } from "react";
-// import { getUserByApi } from "../mockedApi";
-import { getUser } from "../mockedApi";
+import { getUser, getUserByApi } from "../mockedApi";
 
 import { useParams } from "react-router-dom";
 import AverageSession from "../components/graphs/AverageSessions";
@@ -15,22 +14,25 @@ const Homepage = () => {
   const { userId } = useParams();
   const [user, setUSer] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isMockedApi, setIsMockedApi] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
-      // const userData = await getUserByApi(userId);
-      const userData = await getUser(userId);
-
-      console.log("userData", userData);
+      const userData = isMockedApi
+        ? await getUser(userId)
+        : await getUserByApi(userId);
       setUSer(userData);
       setLoading(false);
     };
     fetchUser();
-  }, [userId]);
+  }, [userId, isMockedApi]);
 
   if (loading) return <p>Chargement...</p>;
-const nutritionData = user.keyData;
+  const nutritionData = user.keyData;
   if (!user) return <p>Utilisateur introuvable</p>;
+
+  const todayScore =
+    user.todayScore === undefined ? user.score : user.todayScore;
 
   return (
     <main>
@@ -41,12 +43,24 @@ const nutritionData = user.keyData;
       <div className="graphs-section">
         <div className="rows-container">
           <section className="rows-container__first">
-            <WeightControl user={userId} />
+            <WeightControl userId={userId} isMockedApi={isMockedApi} />
           </section>
           <section className="rows-container__last">
-            <AverageSession className="graph-card" user={userId} />
-            <ActivityRadar className="graph-card" user={userId} />
-            <DailyScore className="graph-card" user={userId} />
+            <AverageSession
+              className="graph-card"
+              userId={userId}
+              isMockedApi={isMockedApi}
+            />
+            <ActivityRadar
+              className="graph-card"
+              userId={userId}
+              isMockedApi={isMockedApi}
+            />
+            <DailyScore
+              className="graph-card"
+              todayScore={todayScore}
+              isMockedApi={isMockedApi}
+            />
           </section>
         </div>
 
@@ -56,6 +70,9 @@ const nutritionData = user.keyData;
           {/* * cards categories: calories proteine lipide glucide */}
         </section>
       </div>
+      <button onClick={() => setIsMockedApi(!isMockedApi)}>
+        switch to {isMockedApi ? "Real api" : "Mocked api"}
+      </button>
     </main>
   );
 };

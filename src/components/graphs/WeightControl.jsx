@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { getActivity } from "../../mockedApi";
-// import { getActivityByApi } from "../../mockedApi";
+import { getActivity, getActivityByApi } from "../../mockedApi";
 
-const WeightControl = ({ user }) => {
+const WeightControl = ({ userId, isMockedApi }) => {
   const [activity, setActivity] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchActivity = async () => {
-      // const activityData = await getActivityByApi(user);
-      const activityData = await getActivity(user);
+      const activityData = isMockedApi
+        ? await getActivity(userId)
+        : await getActivityByApi(userId);
 
       setActivity(activityData);
       setLoading(false);
     };
     fetchActivity();
-  }, [user]);
+  }, [userId, isMockedApi]);
 
   if (loading) return <p>Chargement...</p>;
   if (!activity) return <p>Aucune donnée d'activité</p>;

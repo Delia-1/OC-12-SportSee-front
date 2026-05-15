@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-// import { getAverageSessions } from "../../mockedApi";
-import { getAverageSessionsByApi } from "../../mockedApi";
+import { getAverageSessions, getAverageSessionsByApi } from "../../mockedApi";
 
-const AverageSession = ({ user }) => {
+const AverageSession = ({ userId, isMockedApi }) => {
   const [averageSessions, setAverageSessions] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAverageSessions = async () => {
-      const averageSessionsData = await getAverageSessionsByApi(user);
-      // const averageSessionsData = await getAverageSessions(user);
+      const averageSessionsData = isMockedApi
+        ? await getAverageSessions(userId)
+        : await getAverageSessionsByApi(userId);
 
       setAverageSessions(averageSessionsData);
       setLoading(false);
     };
     fetchAverageSessions();
-  }, [user]);
+  }, [userId, isMockedApi]);
 
   if (loading) return <p>Chargement...</p>;
   if (!averageSessions) return <p>Aucune donnée d'activité</p>;

@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
-import { getPerformanceByApi } from "../../mockedApi";
+import { getPerformance, getPerformanceByApi } from "../../mockedApi";
 
-const ActivityRadar = ({ user }) => {
+const ActivityRadar = ({ userId, isMockedApi }) => {
   const [performance, setPerformance] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPerformance = async () => {
       // const performanceData = await getPerformance(user);
-      const performanceData = await getPerformanceByApi(user);
+      const performanceData = isMockedApi
+        ? await getPerformance(userId)
+        : await getPerformanceByApi(userId);
 
       setPerformance(performanceData);
       setLoading(false);
     };
     fetchPerformance();
-  }, [user]);
+  }, [userId, isMockedApi]);
 
   if (loading) return <p>Chargement...</p>;
   if (!performance) return <p>Aucune donnée d'activité</p>;
 
   const sports = performance.kind;
-  console.log("perfo kind", sports, typeof sport);
 
   return (
     <div>
@@ -30,8 +31,6 @@ const ActivityRadar = ({ user }) => {
           <li key={`${index}-${sport}`}>{sport}</li>
         ))}
       </ul>
-      {/* <p className="test-test">{`day: ${averageSessions.sessions[0].day}`}</p>
-      <p>{`Lenght: ${averageSessions.sessions[0].sessionLength}`}</p> */}
     </div>
   );
 };
