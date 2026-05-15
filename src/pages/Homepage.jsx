@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getUser, getUserByApi } from "../mockedApi";
 
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AverageSession from "../components/graphs/AverageSessions";
 import ActivityRadar from "../components/graphs/ActivityRadar";
 import DailyScore from "../components/graphs/DailyScore";
@@ -15,6 +16,7 @@ const Homepage = () => {
   const [user, setUSer] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isMockedApi, setIsMockedApi] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,11 +30,14 @@ const Homepage = () => {
   }, [userId, isMockedApi]);
 
   if (loading) return <p>Chargement...</p>;
-  const nutritionData = user.keyData;
   if (!user) return <p>Utilisateur introuvable</p>;
+
+  const nutritionData = user.keyData;
 
   const todayScore =
     user.todayScore === undefined ? user.score : user.todayScore;
+
+  let id = Number(userId) === 12 ? 18 : 12;
 
   return (
     <main>
@@ -72,6 +77,9 @@ const Homepage = () => {
       </div>
       <button onClick={() => setIsMockedApi(!isMockedApi)}>
         switch to {isMockedApi ? "Real api" : "Mocked api"}
+      </button>
+      <button onClick={() => navigate(`/user/${id}`)}>
+        Voir user {Number(userId) === 12 ? "18" : "12"}
       </button>
     </main>
   );
