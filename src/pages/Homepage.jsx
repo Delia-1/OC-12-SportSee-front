@@ -1,5 +1,4 @@
 import Welcome from "../components/Welcome";
-import Card from "../components/Card";
 import WeightControl from "../components/graphs/WeightControl";
 
 import { useEffect, useState } from "react";
@@ -8,6 +7,8 @@ import { getUser } from "../mockedApi";
 
 import { useParams } from "react-router-dom";
 import AverageSession from "../components/graphs/AverageSessions";
+import ActivityRadar from "../components/graphs/ActivityRadar";
+import DailyScore from "../components/graphs/DailyScore";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -41,13 +42,9 @@ const Homepage = () => {
             <WeightControl user={userId} />
           </section>
           <section className="rows-container__last">
-            {/* <Objectif /> */}
-            {/* <Card /> */}
-            <AverageSession user={userId} />
-            <Card />
-            <Card />
-            {/* <Radar /> */}
-            {/* <Kpi /> */}
+            <AverageSession className="graph-card" user={userId} />
+            <ActivityRadar className="graph-card" user={userId} />
+            <DailyScore className="graph-card" user={userId} />
           </section>
         </div>
 
