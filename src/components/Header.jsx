@@ -1,6 +1,6 @@
 import logoSportSee from "../assets/logoSportSee.svg";
 
-const links = ["Acceuil", "Profil", "Réglage", "Communauté"];
+const links = ["Accueil", "Profil", "Réglage", "Communauté"];
 
 const Header = () => {
   return (

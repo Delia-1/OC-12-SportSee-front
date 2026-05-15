@@ -35,6 +35,18 @@
   }
 }
 
+.switch-section {
+  display: flex;
+  gap: 1rem;
+
+  &__button {
+    width: 9rem;
+    background-color: $bg-dark;
+    color: $white;
+    padding: $spacing-xxs;
+  }
+}
+
 // .graph-card {
 //   border: 1px solid black;
 //   width: 258px;

@@ -75,12 +75,20 @@ const Homepage = () => {
           {/* * cards categories: calories proteine lipide glucide */}
         </section>
       </div>
-      <button onClick={() => setIsMockedApi(!isMockedApi)}>
-        switch to {isMockedApi ? "Real api" : "Mocked api"}
-      </button>
-      <button onClick={() => navigate(`/user/${id}`)}>
-        Voir user {Number(userId) === 12 ? "18" : "12"}
-      </button>
+      <div className="switch-section">
+        <button
+          className="switch-section__button"
+          onClick={() => setIsMockedApi(!isMockedApi)}
+        >
+          Switch to {isMockedApi ? "Real api" : "Mocked api"}
+        </button>
+        <button
+          className="switch-section__button"
+          onClick={() => navigate(`/user/${id}`)}
+        >
+          Switch to user {Number(userId) === 12 ? "18" : "12"}
+        </button>
+      </div>
     </main>
   );
 };
