@@ -71,6 +71,22 @@ export const mockData = {
           kilogram: 76,
           calories: 390,
         },
+
+        {
+          day: "2020-07-01",
+          kilogram: 80,
+          calories: 240,
+        },
+        {
+          day: "2020-07-02",
+          kilogram: 80,
+          calories: 220,
+        },
+        {
+          day: "2020-07-03",
+          kilogram: 81,
+          calories: 280,
+        },
       ],
     },
     {

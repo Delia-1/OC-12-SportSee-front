@@ -1,6 +1,75 @@
 @use "../../abstracts/variables" as *;
 @use "../../abstracts/mixins" as *;
 
-.test {
-  color: red;
+.weight-chart {
+  background-color: #fbfbfb;
+  padding-bottom: 2rem;
+  padding: 24px 0px 24px 4px;
+}
+.title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #20253a;
+  margin-left: 30px;
+}
+
+.custom-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: $white;
+  text-align: center;
+  height: 63px;
+}
+
+.custom-tooltip p {
+  padding: 5px;
+  margin: 0;
+  font-size: 7px;
+  font-family: $font-text;
+}
+
+.wrapper {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  margin-inline-end: 1.5rem;
+}
+
+.legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2.2rem;
+  align-items: center;
+
+  &__infos {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  &__black-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #282d30;
+  }
+  &__red-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #e60000;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: #74798c;
+    margin: 0;
+  }
+}
+
+.recharts-wrapper * {
+  outline: none;
 }

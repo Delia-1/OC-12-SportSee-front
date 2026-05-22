@@ -9,16 +9,13 @@
   height: 100vh;
 
   .rows-container {
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
-    &__first {
-      border: 1px solid rgb(169, 88, 7);
-      width: 835px;
-      height: 320px;
-    }
+    // &__first {
+
+    // }
 
     &__last {
       border: 1px solid green;
@@ -46,9 +43,3 @@
     padding: $spacing-xxs;
   }
 }
-
-// .graph-card {
-//   border: 1px solid black;
-//   width: 258px;
-//   height: 263px;
-// }
