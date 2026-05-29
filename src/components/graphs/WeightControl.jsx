@@ -54,7 +54,7 @@ const WeightControl = ({ userId, isMockedApi }) => {
       const caloriesData = payload.find((item) => item.dataKey === "calories");
 
       return (
-        <div className="custom-tooltip">
+        <div className="custom-tooltip-activity">
           <p>{kilogramData?.value}kg</p>
           <p>{caloriesData?.value}Kcal</p>
         </div>
@@ -118,7 +118,6 @@ const WeightControl = ({ userId, isMockedApi }) => {
             type="number"
             domain={[1, chartData.length]}
             ticks={chartData.map((item) => item.index)}
-            // tickFormatter={(_, index) => index + 1}
             tickLine={false}
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
             axisLine={{ stroke: "#9B9EAC" }}
@@ -146,10 +145,6 @@ const WeightControl = ({ userId, isMockedApi }) => {
           <Tooltip
             content={customTooltip}
             offset={{ x: 25, y: -40 }}
-            wrapperStyle={{
-              width: 39,
-              backgroundColor: "#E60000",
-            }}
             cursor={<CustomCursor />}
           />
           <Bar

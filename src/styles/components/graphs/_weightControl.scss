@@ -13,16 +13,17 @@
   margin-left: 30px;
 }
 
-.custom-tooltip {
+.custom-tooltip-activity {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   color: $white;
   text-align: center;
   height: 63px;
+  background-color: #e60000;
 }
 
-.custom-tooltip p {
+.custom-tooltip-activity p {
   padding: 5px;
   margin: 0;
   font-size: 7px;
