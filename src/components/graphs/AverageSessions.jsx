@@ -88,7 +88,6 @@ const AverageSession = ({ userId, isMockedApi }) => {
         maxHeight: "263px",
         backgroundColor: "#FF0000",
         borderRadius: "5px",
-        margin: "2px",
       }}
       responsive
       data={chartData}
