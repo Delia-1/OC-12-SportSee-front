@@ -2,28 +2,25 @@
 @use "../abstracts/mixins" as *;
 
 .graphs-section {
-  border: 1px solid red;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1.5rem;
   height: 100vh;
+
+  @media screen and (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+  }
 
   .rows-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
-    // &__first {
-
-    // }
-
     &__last {
-      border: 1px solid green;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      width: 835px;
-      height: 320px;
     }
   }
 

@@ -1,8 +1,6 @@
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
 
 const DailyScore = ({ todayScore }) => {
-  todayScore = 1;
-
   const data = [
     { name: "score", value: todayScore },
     { name: "rest", value: 1 - todayScore },

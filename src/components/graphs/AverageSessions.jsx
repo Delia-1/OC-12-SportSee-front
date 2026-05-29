@@ -27,7 +27,7 @@ const CustomCursor = ({ points, x, y, width }) => {
       x={cursorX}
       y={y ?? 0}
       width={(x ?? 0) + (width ?? 0) - cursorX}
-      height={263}
+      height={500}
       fill="rgba(0, 0, 0, 0.1)"
     />
   );
@@ -80,12 +80,9 @@ const AverageSession = ({ userId, isMockedApi }) => {
   ];
 
   return (
-    // <div className="graph-card">
     <LineChart
       style={{
         width: "100%",
-        maxWidth: "258px",
-        maxHeight: "263px",
         backgroundColor: "#FF0000",
         borderRadius: "5px",
       }}
@@ -95,7 +92,7 @@ const AverageSession = ({ userId, isMockedApi }) => {
         top: 50,
         right: 0,
         left: 0,
-        bottom: 5,
+        bottom: 20,
       }}
     >
       <Text
@@ -118,7 +115,6 @@ const AverageSession = ({ userId, isMockedApi }) => {
       >
         sessions
       </Text>
-      {/* <CarteanGrid strokeDasharray="3 3" /> */}
       <XAxis
         dataKey="day"
         axisLine={false}
@@ -129,7 +125,7 @@ const AverageSession = ({ userId, isMockedApi }) => {
           const days = ["L", "M", "M", "J", "V", "S", "D"];
           return days[value - 1];
         }}
-        tickMargin={15}
+        tickMargin={20}
         padding={{ left: -10, right: -10 }}
       />
       <YAxis dataKey="sessionLength" width={20} hide={true} />
@@ -149,7 +145,6 @@ const AverageSession = ({ userId, isMockedApi }) => {
         animationEasing="ease"
       />
     </LineChart>
-    // </div>
   );
 };
 
