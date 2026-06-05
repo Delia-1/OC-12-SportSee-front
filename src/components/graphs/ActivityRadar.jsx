@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { getPerformance, getPerformanceByApi } from "../../mockedApi";
 import {
   RadarChart,
@@ -7,27 +6,17 @@ import {
   Radar,
   PolarRadiusAxis,
 } from "recharts";
+import { useFetchData } from "../../utils/useFetchData";
 
 const ActivityRadar = ({ userId, isMockedApi }) => {
-  const [performance, setPerformance] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {
+    data: performance,
+    loading,
+    error,
+  } = useFetchData(userId, isMockedApi, getPerformance, getPerformanceByApi);
 
-  useEffect(() => {
-    const fetchPerformance = async () => {
-      const performanceData = isMockedApi
-        ? await getPerformance(userId)
-        : await getPerformanceByApi(userId);
-
-      setPerformance(performanceData);
-      setLoading(false);
-    };
-    fetchPerformance();
-  }, [userId, isMockedApi]);
-
-  // Faire un util pour gerer les copy/ trads
-
-  if (loading) return <p>Chargement...</p>;
-  if (!performance) return <p>Aucune donnée d'activité</p>;
+  if (loading && !performance) return <p>Chargement...</p>;
+  if (error) return <p>Erreur</p>;
 
   const KIND_MAP = {
     1: "Cardio",

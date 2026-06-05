@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { getActivity, getActivityByApi } from "../../mockedApi";
+import { useFetchData } from "../../utils/useFetchData";
 import {
   BarChart,
   ResponsiveContainer,
@@ -8,7 +8,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  // Legend,
 } from "recharts";
 
 const CustomCursor = ({ x, y, width, height }) => {
@@ -24,23 +23,15 @@ const CustomCursor = ({ x, y, width, height }) => {
 };
 
 const WeightControl = ({ userId, isMockedApi }) => {
-  const [activity, setActivity] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {
+    data: activity,
+    loading,
+    error,
+  } = useFetchData(userId, isMockedApi, getActivity, getActivityByApi);
 
-  useEffect(() => {
-    const fetchActivity = async () => {
-      const activityData = isMockedApi
-        ? await getActivity(userId)
-        : await getActivityByApi(userId);
+  if (loading && !activity) return <p>Chargement...</p>;
+  if (error) return <p>Erreur</p>;
 
-      setActivity(activityData);
-      setLoading(false);
-    };
-    fetchActivity();
-  }, [userId, isMockedApi]);
-
-  if (loading) return <p>Chargement...</p>;
-  if (!activity) return <p>Aucune donnée d'activité</p>;
   const sessions = activity.sessions;
 
   const chartData = sessions.map((session, index) => ({

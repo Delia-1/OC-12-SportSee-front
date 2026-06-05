@@ -1,8 +1,9 @@
 import Welcome from "../components/Welcome";
 import WeightControl from "../components/graphs/WeightControl";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getUser, getUserByApi } from "../mockedApi";
+import { useFetchData } from "../utils/useFetchData";
 
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -13,24 +14,17 @@ import Nutrition from "../components/Nutrition";
 
 const Homepage = () => {
   const { userId } = useParams();
-  const [user, setUSer] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [isMockedApi, setIsMockedApi] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const userData = isMockedApi
-        ? await getUser(userId)
-        : await getUserByApi(userId);
-      setUSer(userData);
-      setLoading(false);
-    };
-    fetchUser();
-  }, [userId, isMockedApi]);
+  const {
+    data: user,
+    loading,
+    error,
+  } = useFetchData(userId, isMockedApi, getUser, getUserByApi);
 
-  if (loading) return <p>Chargement...</p>;
-  if (!user) return <p>Utilisateur introuvable</p>;
+  if (loading && !user) return <p>Chargement...</p>;
+  if (error) return <p>Erreur</p>;
 
   const nutritionData = user.keyData;
 
@@ -93,6 +87,3 @@ const Homepage = () => {
   );
 };
 export default Homepage;
-
-// ClassName: séparer container pour avoir une classe reutilisable de conteneur basique
-// Section: Verifier que se soit le plus adapter pour l'accessibilité

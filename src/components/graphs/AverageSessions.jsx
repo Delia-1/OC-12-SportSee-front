@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import { getAverageSessions, getAverageSessionsByApi } from "../../mockedApi";
 import { LineChart, XAxis, YAxis, Tooltip, Text, Line } from "recharts";
+import { useFetchData } from "../../utils/useFetchData";
 
 const CustomDot = (props) => {
   const { cx, cy } = props;
@@ -44,23 +44,19 @@ const customTooltip = ({ payload, active }) => {
 };
 
 const AverageSession = ({ userId, isMockedApi }) => {
-  const [averageSessions, setAverageSessions] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const {
+    data: averageSessions,
+    loading,
+    error,
+  } = useFetchData(
+    userId,
+    isMockedApi,
+    getAverageSessions,
+    getAverageSessionsByApi,
+  );
 
-  useEffect(() => {
-    const fetchAverageSessions = async () => {
-      const averageSessionsData = isMockedApi
-        ? await getAverageSessions(userId)
-        : await getAverageSessionsByApi(userId);
-
-      setAverageSessions(averageSessionsData);
-      setLoading(false);
-    };
-    fetchAverageSessions();
-  }, [userId, isMockedApi]);
-
-  if (loading) return <p>Chargement...</p>;
-  if (!averageSessions) return <p>Aucune donnée d'activité</p>;
+  if (loading && !averageSessions) return <p>Chargement...</p>;
+  if (error) return <p>Aucune donnée d'activité</p>;
 
   // Todo: replace the first and last hardcoded values with data from previous week and projection
   const chartData = [
