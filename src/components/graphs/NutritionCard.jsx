@@ -2,6 +2,7 @@ import apple from "../../assets/apple.svg";
 import cheeseburger from "../../assets/cheeseburger.svg";
 import energy from "../../assets/energy.svg";
 import chicken from "../../assets/chicken.svg";
+import copy from "../../utils/copy.json";
 
 const NutritionCard = ({ amount, type }) => {
   let name = "";
@@ -14,25 +15,25 @@ const NutritionCard = ({ amount, type }) => {
 
   switch (type) {
     case "calorieCount":
-      name = "Calories";
+      name = copy.calories;
       icon = energy;
       bgColor = "#FF00001A";
       mesure = calories;
       break;
     case "proteinCount":
-      name = "Proteines";
+      name = copy.proteins;
       icon = chicken;
       bgColor = "#4AB8FF1A";
       mesure = gram;
       break;
     case "carbohydrateCount":
-      name = "Glucides";
+      name = copy.carbohydrates;
       icon = apple;
       bgColor = "#F9CE231A";
       mesure = gram;
       break;
     case "lipidCount":
-      name = "Lipides";
+      name = copy.lipids;
       icon = cheeseburger;
       bgColor = "#FD51811A";
       mesure = gram;

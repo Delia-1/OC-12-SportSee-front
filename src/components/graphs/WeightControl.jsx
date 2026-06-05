@@ -1,5 +1,6 @@
 import { getActivity, getActivityByApi } from "../../mockedApi";
 import { useFetchData } from "../../utils/useFetchData";
+import copy from "../../utils/copy.json";
 import {
   BarChart,
   ResponsiveContainer,
@@ -29,8 +30,8 @@ const WeightControl = ({ userId, isMockedApi }) => {
     error,
   } = useFetchData(userId, isMockedApi, getActivity, getActivityByApi);
 
-  if (loading && !activity) return <p>Chargement...</p>;
-  if (error) return <p>Erreur</p>;
+  if (loading && !activity) return <p>{copy.loading}</p>;
+  if (error) return <p>{copy.noData}</p>;
 
   const sessions = activity.sessions;
 
@@ -46,8 +47,14 @@ const WeightControl = ({ userId, isMockedApi }) => {
 
       return (
         <div className="custom-tooltip-activity">
-          <p>{kilogramData?.value}kg</p>
-          <p>{caloriesData?.value}Kcal</p>
+          <p>
+            {kilogramData?.value}
+            {copy.unitKg}
+          </p>
+          <p>
+            {caloriesData?.value}
+            {copy.unitKcal}
+          </p>
         </div>
       );
     }
@@ -58,15 +65,19 @@ const WeightControl = ({ userId, isMockedApi }) => {
   const customHeader = () => {
     return (
       <div className="wrapper">
-        <h3 className="title">Activité quotidienne</h3>
+        <h3 className="title">{copy.dailyActivity}</h3>
         <div className="legend">
           <div className="legend__infos">
             <div className="legend__black-dot"></div>
-            <p className="legend__text">Poids (kg)</p>
+            <p className="legend__text">
+              {copy.weight} ({copy.unitKg})
+            </p>
           </div>
           <div className="legend__infos">
             <div className="legend__red-dot"></div>
-            <p className="legend__text">Calories brulées (kCal)</p>
+            <p className="legend__text">
+              {copy.burntCalories} ({copy.unitKcal})
+            </p>
           </div>
         </div>
       </div>

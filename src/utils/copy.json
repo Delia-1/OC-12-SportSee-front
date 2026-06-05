@@ -1,0 +1,44 @@
+{
+  "loading": "Chargement...",
+  "noData": "Aucune donnée trouvée",
+  "hello": "Bonjour",
+  "congratsMessage": "Félicitation ! Vous avez explosé vos objectifs hier 👏",
+
+  "homepage": "Accueil",
+  "profile": "Profile",
+  "settings": "Réglage",
+  "community": "Communauté",
+
+  "cardio": "Cardio",
+  "energy": "Energie",
+  "endurance": "Endurance",
+  "strength": "Force",
+  "speed": "Vitesse",
+  "intensity": "Intensité",
+
+  "averageTimeOf": "Durée moyenne des",
+  "sessions": "sessions",
+  "monday": "L",
+  "tuesday": "M",
+  "wednesday": "M",
+  "thursday": "J",
+  "friday": "V",
+  "saturday": "S",
+  "sunday": "D",
+
+  "score": "Score",
+  "ofYour": "de votre ",
+  "objective": "objectif",
+
+  "calories": "Calories",
+  "proteins": "Proteines",
+  "carbohydrates": "Glucides",
+  "lipids": "Lipides",
+  "unitKcal": "kCal",
+  "unitKg": "kg",
+  "unitGram": "g",
+
+  "dailyActivity": "Activité quotidienne",
+  "weight": "Poids",
+  "burntCalories": "Calories Brulées"
+}

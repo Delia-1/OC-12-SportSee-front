@@ -1,15 +1,14 @@
+import copy from "../utils/copy.json";
 const Welcome = ({ user }) => {
   const userFirstName = user.userInfos.firstName;
 
   return (
     <div className="welcome">
       <h1 className="welcome__title">
-        Bonjour
+        {copy.hello}
         <span className="welcome__title--span"> {userFirstName}</span>
       </h1>
-      <p className="welcome__message">
-        Félicitation ! Vous avez explosé vos objectifs hier 👏
-      </p>
+      <p className="welcome__message">{copy.congratsMessage}</p>
     </div>
   );
 };

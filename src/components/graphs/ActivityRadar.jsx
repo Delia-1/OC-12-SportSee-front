@@ -6,6 +6,7 @@ import {
   Radar,
   PolarRadiusAxis,
 } from "recharts";
+import copy from "../../utils/copy.json";
 import { useFetchData } from "../../utils/useFetchData";
 
 const ActivityRadar = ({ userId, isMockedApi }) => {
@@ -15,16 +16,16 @@ const ActivityRadar = ({ userId, isMockedApi }) => {
     error,
   } = useFetchData(userId, isMockedApi, getPerformance, getPerformanceByApi);
 
-  if (loading && !performance) return <p>Chargement...</p>;
-  if (error) return <p>Erreur</p>;
+  if (loading && !performance) return <p>{copy.loading}</p>;
+  if (error) return <p>{copy.noData}</p>;
 
   const KIND_MAP = {
-    1: "Cardio",
-    2: "Energie",
-    3: "Endurance",
-    4: "Force",
-    5: "Vitesse",
-    6: "Intensité",
+    1: copy.cardio,
+    2: copy.energy,
+    3: copy.endurance,
+    4: copy.strength,
+    5: copy.speed,
+    6: copy.intensity,
   };
 
   const performanceFormated = performance.data.map((dataSet) => ({

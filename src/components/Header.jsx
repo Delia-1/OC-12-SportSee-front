@@ -1,6 +1,7 @@
 import logoSportSee from "../assets/logoSportSee.svg";
+import copy from "../utils/copy.json";
 
-const links = ["Accueil", "Profil", "Réglage", "Communauté"];
+const links = [copy.homepage, copy.profile, copy.settings, copy.community];
 
 const Header = () => {
   return (

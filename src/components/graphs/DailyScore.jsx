@@ -1,4 +1,5 @@
 import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
+import copy from "../../utils/copy.json";
 
 const DailyScore = ({ todayScore }) => {
   const data = [
@@ -38,7 +39,7 @@ const DailyScore = ({ todayScore }) => {
               color: "#20253A",
             }}
           >
-            Score
+            {copy.score}
           </span>
         </div>
         <ResponsiveContainer width="100%" height="100%">
@@ -93,8 +94,8 @@ const DailyScore = ({ todayScore }) => {
               fontWeight: "500",
             }}
           >
-            de votre
-            <br /> objectif
+            {copy.ofYour}
+            <br /> {copy.objective}
           </span>
         </div>
       </div>

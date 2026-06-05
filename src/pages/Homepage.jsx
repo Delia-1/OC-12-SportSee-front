@@ -11,6 +11,7 @@ import AverageSession from "../components/graphs/AverageSessions";
 import ActivityRadar from "../components/graphs/ActivityRadar";
 import DailyScore from "../components/graphs/DailyScore";
 import Nutrition from "../components/Nutrition";
+import copy from "../utils/copy.json";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -23,8 +24,8 @@ const Homepage = () => {
     error,
   } = useFetchData(userId, isMockedApi, getUser, getUserByApi);
 
-  if (loading && !user) return <p>Chargement...</p>;
-  if (error) return <p>Erreur</p>;
+  if (loading && !user) return <p>{copy.loading}</p>;
+  if (error) return <p>{copy.noData}</p>;
 
   const nutritionData = user.keyData;
 

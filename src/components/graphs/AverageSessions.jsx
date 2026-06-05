@@ -1,6 +1,7 @@
 import { getAverageSessions, getAverageSessionsByApi } from "../../mockedApi";
 import { LineChart, XAxis, YAxis, Tooltip, Text, Line } from "recharts";
 import { useFetchData } from "../../utils/useFetchData";
+import copy from "../../utils/copy.json";
 
 const CustomDot = (props) => {
   const { cx, cy } = props;
@@ -55,8 +56,8 @@ const AverageSession = ({ userId, isMockedApi }) => {
     getAverageSessionsByApi,
   );
 
-  if (loading && !averageSessions) return <p>Chargement...</p>;
-  if (error) return <p>Aucune donnée d'activité</p>;
+  if (loading && !averageSessions) return <p>{copy.loading}</p>;
+  if (error) return <p>{copy.noData}</p>;
 
   // Todo: replace the first and last hardcoded values with data from previous week and projection
   const chartData = [
@@ -99,7 +100,7 @@ const AverageSession = ({ userId, isMockedApi }) => {
         fontWeight={500}
         fontFamily="roboto"
       >
-        Durée moyenne des
+        {copy.averageTimeOf}
       </Text>
       <Text
         x={30}
@@ -109,7 +110,7 @@ const AverageSession = ({ userId, isMockedApi }) => {
         fontWeight={500}
         fontFamily="roboto"
       >
-        sessions
+        {copy.sessions}
       </Text>
       <XAxis
         dataKey="day"
