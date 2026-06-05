@@ -5,6 +5,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 258px;
+  height: 124px;
+  padding: 32px;
+  background-color: #00000005;
+  gap: 1rem;
+
+  &__icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+  }
 
   &__infos {
     display: flex;
@@ -13,6 +27,17 @@
     .amount,
     .type {
       margin: 0;
+    }
+
+    .amount {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .type {
+      font-size: 14px;
+      font-weight: 500;
+      color: #282d30;
     }
   }
 }
