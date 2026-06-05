@@ -25,7 +25,7 @@ const DailyScore = ({ todayScore }) => {
           style={{
             position: "absolute",
             top: "8px",
-            left: "24px",
+            left: "26px",
             fontFamily: "roboto",
             fontSize: "26px",
           }}
@@ -50,8 +50,8 @@ const DailyScore = ({ todayScore }) => {
               outerRadius="70%"
               cornerRadius="50%"
               paddingAngle={5}
-              startAngle={90}
-              endAngle={450}
+              startAngle={80}
+              endAngle={465}
             >
               <Cell fill="#FF0000" stroke="none" />
               <Cell fill="transparent" stroke="none" />
@@ -61,7 +61,7 @@ const DailyScore = ({ todayScore }) => {
         <div
           style={{
             position: "absolute",
-            top: "50%",
+            top: "54%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: "59%",

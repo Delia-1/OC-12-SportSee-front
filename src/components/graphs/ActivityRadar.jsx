@@ -54,15 +54,17 @@ const ActivityRadar = ({ userId, isMockedApi }) => {
           aspectRatio: 1,
           backgroundColor: "#282D30",
           color: "#ffffff",
+          padding: "0",
         }}
         responsive
-        outerRadius="80%"
+        outerRadius="75%"
         data={performanceFormated.reverse()}
         margin={{
           top: 20,
           left: 20,
-          right: 20,
-          bottom: 20,
+        }}
+        padding={{
+          left: 30,
         }}
       >
         <PolarGrid radialLines={false} stroke="#ffffff" />

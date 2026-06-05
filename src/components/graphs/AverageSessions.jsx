@@ -89,15 +89,15 @@ const AverageSession = ({ userId, isMockedApi }) => {
       responsive
       data={chartData}
       margin={{
-        top: 50,
+        top: 70,
         right: 0,
         left: 0,
-        bottom: 20,
+        bottom: 52,
       }}
     >
       <Text
         x={30}
-        y={30}
+        y={50}
         fill="#FFFFFF80"
         fontSize={15}
         fontWeight={500}
@@ -107,7 +107,7 @@ const AverageSession = ({ userId, isMockedApi }) => {
       </Text>
       <Text
         x={30}
-        y={50}
+        y={70}
         fill="#FFFFFF80"
         fontSize={15}
         fontWeight={500}
@@ -125,8 +125,9 @@ const AverageSession = ({ userId, isMockedApi }) => {
           const days = ["L", "M", "M", "J", "V", "S", "D"];
           return days[value - 1];
         }}
-        tickMargin={20}
+        tickMargin={40}
         padding={{ left: -10, right: -10 }}
+        margin={{ bottom: 40 }}
       />
       <YAxis dataKey="sessionLength" width={20} hide={true} />
 

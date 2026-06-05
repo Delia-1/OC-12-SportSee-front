@@ -4,28 +4,29 @@
 .graphs-section {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 1.5rem;
-  height: 100vh;
+  gap: 1.2rem;
 
   @media screen and (max-width: 1200px) {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    gap: 2.2rem;
   }
 
   .rows-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2.2rem;
 
     &__last {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.6rem;
     }
   }
 
   &__nutrition {
-    // border: 1px solid pink;
+    height: 100%;
     gap: 1rem;
   }
 }

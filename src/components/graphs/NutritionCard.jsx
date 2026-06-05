@@ -7,27 +7,35 @@ const NutritionCard = ({ amount, type }) => {
   let name = "";
   let icon = "";
   let bgColor = "";
+  let mesure = "";
+
+  const calories = "kCal";
+  const gram = "g";
 
   switch (type) {
     case "calorieCount":
       name = "Calories";
       icon = energy;
       bgColor = "#FF00001A";
+      mesure = calories;
       break;
     case "proteinCount":
       name = "Proteines";
       icon = chicken;
       bgColor = "#4AB8FF1A";
+      mesure = gram;
       break;
     case "carbohydrateCount":
       name = "Glucides";
       icon = apple;
       bgColor = "#F9CE231A";
+      mesure = gram;
       break;
     case "lipidCount":
       name = "Lipides";
       icon = cheeseburger;
       bgColor = "#FD51811A";
+      mesure = gram;
 
       break;
     default:
@@ -43,7 +51,10 @@ const NutritionCard = ({ amount, type }) => {
         <img src={icon} alt={name} />
       </div>
       <div className="nutrition-card__infos">
-        <p className="amount">{amount}</p>
+        <p className="amount">
+          {amount}
+          {mesure}
+        </p>
         <p className="type">{name}</p>
       </div>
     </div>
