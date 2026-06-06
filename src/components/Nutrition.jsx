@@ -1,10 +1,10 @@
 import NutritionCard from "./graphs/NutritionCard";
 
-const Nutrition = ({ nutritionData }) => {
+const Nutrition = ({ nutritionCards }) => {
   return (
     <div className="nutrition-container">
-      {Object.entries(nutritionData).map(([key, value]) => (
-        <NutritionCard key={key} amount={value} type={key} />
+      {nutritionCards.map((card) => (
+        <NutritionCard key={card.name} card={card} />
       ))}
     </div>
   );

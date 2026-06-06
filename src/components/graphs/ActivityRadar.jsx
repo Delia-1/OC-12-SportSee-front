@@ -1,4 +1,7 @@
 import { getPerformance, getPerformanceByApi } from "../../mockedApi";
+import copy from "../../utils/copy.json";
+import { useFetchData } from "../../utils/useFetchData";
+import { ActivityRadarModel } from "../../models/activityRadarModel";
 import {
   RadarChart,
   PolarGrid,
@@ -6,8 +9,6 @@ import {
   Radar,
   PolarRadiusAxis,
 } from "recharts";
-import copy from "../../utils/copy.json";
-import { useFetchData } from "../../utils/useFetchData";
 
 const ActivityRadar = ({ userId, isMockedApi }) => {
   const {
@@ -19,19 +20,8 @@ const ActivityRadar = ({ userId, isMockedApi }) => {
   if (loading && !performance) return <p>{copy.loading}</p>;
   if (error) return <p>{copy.noData}</p>;
 
-  const KIND_MAP = {
-    1: copy.cardio,
-    2: copy.energy,
-    3: copy.endurance,
-    4: copy.strength,
-    5: copy.speed,
-    6: copy.intensity,
-  };
-
-  const performanceFormated = performance.data.map((dataSet) => ({
-    ...dataSet,
-    kind: KIND_MAP[dataSet.kind],
-  }));
+  const model = new ActivityRadarModel(performance);
+  const chartData = model.getChartData();
 
   return (
     <div>
@@ -48,7 +38,7 @@ const ActivityRadar = ({ userId, isMockedApi }) => {
         }}
         responsive
         outerRadius="75%"
-        data={performanceFormated.reverse()}
+        data={chartData}
         margin={{
           top: 20,
           left: 20,

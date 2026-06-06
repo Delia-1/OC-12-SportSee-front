@@ -1,6 +1,7 @@
 import { getActivity, getActivityByApi } from "../../mockedApi";
 import { useFetchData } from "../../utils/useFetchData";
 import copy from "../../utils/copy.json";
+import { WeightControlModel } from "../../models/weightControlModel";
 import {
   BarChart,
   ResponsiveContainer,
@@ -33,33 +34,27 @@ const WeightControl = ({ userId, isMockedApi }) => {
   if (loading && !activity) return <p>{copy.loading}</p>;
   if (error) return <p>{copy.noData}</p>;
 
-  const sessions = activity.sessions;
-
-  const chartData = sessions.map((session, index) => ({
-    ...session,
-    index: index + 1,
-  }));
+  const model = new WeightControlModel(activity);
+  const chartData = model.getChartData();
 
   const customTooltip = ({ payload, active }) => {
-    if (active && payload && payload.length) {
-      const kilogramData = payload.find((item) => item.dataKey === "kilogram");
-      const caloriesData = payload.find((item) => item.dataKey === "calories");
-
-      return (
-        <div className="custom-tooltip-activity">
-          <p>
-            {kilogramData?.value}
-            {copy.unitKg}
-          </p>
-          <p>
-            {caloriesData?.value}
-            {copy.unitKcal}
-          </p>
-        </div>
-      );
+    if (!active || !payload?.length) {
+      return null;
     }
+    const [weight, calories] = payload;
 
-    return null;
+    return (
+      <div className="custom-tooltip-activity">
+        <p>
+          {weight.value}
+          {copy.unitKg}
+        </p>
+        <p>
+          {calories.value}
+          {copy.unitKcal}
+        </p>
+      </div>
+    );
   };
 
   const customHeader = () => {
@@ -89,7 +84,6 @@ const WeightControl = ({ userId, isMockedApi }) => {
       {customHeader()}
       <ResponsiveContainer height={210} width="100%">
         <BarChart
-          // accessibilityLayer
           barCategoryGap="10%"
           barGap={8}
           data={chartData}
@@ -118,8 +112,8 @@ const WeightControl = ({ userId, isMockedApi }) => {
           <XAxis
             dataKey="index"
             type="number"
-            domain={[1, chartData.length]}
-            ticks={chartData.map((item) => item.index)}
+            domain={model.getXAxisdomain()}
+            ticks={model.getXAxisTicks()}
             tickLine={false}
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
             axisLine={{ stroke: "#9B9EAC" }}
@@ -129,7 +123,7 @@ const WeightControl = ({ userId, isMockedApi }) => {
           <YAxis
             yAxisId="kilogram"
             dataKey="kilogram"
-            domain={["dataMin - 1", "dataMax + 1"]}
+            domain={model.getWeightAxisDomain()}
             tickCount={3}
             orientation="right"
             tick={{ fill: "#9B9EAC", fontSize: 14 }}
@@ -140,7 +134,7 @@ const WeightControl = ({ userId, isMockedApi }) => {
           <YAxis
             yAxisId="calories"
             dataKey="calories"
-            domain={[0, "dataMax"]}
+            domain={model.getCaloriesAxisDomain()}
             hide
           />
 

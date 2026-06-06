@@ -1,7 +1,8 @@
-import { getAverageSessions, getAverageSessionsByApi } from "../../mockedApi";
-import { LineChart, XAxis, YAxis, Tooltip, Text, Line } from "recharts";
 import { useFetchData } from "../../utils/useFetchData";
 import copy from "../../utils/copy.json";
+import { AverageSessionsModel } from "../../models/averageSessionModel";
+import { getAverageSessions, getAverageSessionsByApi } from "../../mockedApi";
+import { LineChart, XAxis, YAxis, Tooltip, Text, Line } from "recharts";
 
 const CustomDot = (props) => {
   const { cx, cy } = props;
@@ -59,22 +60,8 @@ const AverageSession = ({ userId, isMockedApi }) => {
   if (loading && !averageSessions) return <p>{copy.loading}</p>;
   if (error) return <p>{copy.noData}</p>;
 
-  // Todo: replace the first and last hardcoded values with data from previous week and projection
-  const chartData = [
-    {
-      day: 0,
-      sessionLength: averageSessions.sessions[0].sessionLength,
-      hidden: true,
-    },
-    ...averageSessions.sessions,
-    {
-      day: 8,
-      sessionLength:
-        averageSessions.sessions[averageSessions.sessions.length - 1]
-          .sessionLength,
-      hidden: true,
-    },
-  ];
+  const model = new AverageSessionsModel(averageSessions);
+  const chartData = model.getChartData();
 
   return (
     <LineChart
@@ -117,11 +104,6 @@ const AverageSession = ({ userId, isMockedApi }) => {
         axisLine={false}
         tickLine={false}
         tick={{ fill: "#ffffff80", fontSize: 14, fontFamily: "Roboto" }}
-        ticks={[1, 2, 3, 4, 5, 6, 7]}
-        tickFormatter={(value) => {
-          const days = ["L", "M", "M", "J", "V", "S", "D"];
-          return days[value - 1];
-        }}
         tickMargin={40}
         padding={{ left: -10, right: -10 }}
         margin={{ bottom: 40 }}

@@ -1,17 +1,16 @@
-import Welcome from "../components/Welcome";
-import WeightControl from "../components/graphs/WeightControl";
-
 import { useState } from "react";
 import { getUser, getUserByApi } from "../mockedApi";
 import { useFetchData } from "../utils/useFetchData";
-
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import copy from "../utils/copy.json";
+import { HomepageModel } from "../models/homepageModel";
+import Welcome from "../components/Welcome";
+import WeightControl from "../components/graphs/WeightControl";
 import AverageSession from "../components/graphs/AverageSessions";
 import ActivityRadar from "../components/graphs/ActivityRadar";
 import DailyScore from "../components/graphs/DailyScore";
 import Nutrition from "../components/Nutrition";
-import copy from "../utils/copy.json";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -27,19 +26,15 @@ const Homepage = () => {
   if (loading && !user) return <p>{copy.loading}</p>;
   if (error) return <p>{copy.noData}</p>;
 
-  const nutritionData = user.keyData;
-
-  const todayScore =
-    user.todayScore === undefined ? user.score : user.todayScore;
+  const model = new HomepageModel(user);
 
   let id = Number(userId) === 12 ? 18 : 12;
 
   return (
     <main>
       <section className="welcome-section">
-        <Welcome user={user} />
+        <Welcome userFirstName={model.getUserFirstName()} />
       </section>
-      {/* d-block ici */}
       <div className="graphs-section">
         <div className="rows-container">
           <section className="rows-container__first">
@@ -58,7 +53,7 @@ const Homepage = () => {
             />
             <DailyScore
               className="graph-card"
-              todayScore={todayScore}
+              todayScore={model.getTodayScore()}
               isMockedApi={isMockedApi}
             />
           </section>
@@ -66,8 +61,10 @@ const Homepage = () => {
 
         <section className="graphs-section__nutrition">
           {/* je dois faire un map */}
-          <Nutrition nutritionData={nutritionData} isMockedApi={isMockedApi} />
-          {/* * cards categories: calories proteine lipide glucide */}
+          <Nutrition
+            nutritionCards={model.getNutritionCards()}
+            isMockedApi={isMockedApi}
+          />
         </section>
       </div>
       <div className="switch-section">

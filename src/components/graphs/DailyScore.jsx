@@ -1,11 +1,10 @@
-import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
 import copy from "../../utils/copy.json";
+import { DailyScoreModel } from "../../models/dailyScoreModel";
+import { Pie, PieChart, Cell, ResponsiveContainer } from "recharts";
 
 const DailyScore = ({ todayScore }) => {
-  const data = [
-    { name: "score", value: todayScore },
-    { name: "rest", value: 1 - todayScore },
-  ];
+  const model = new DailyScoreModel(todayScore);
+  const data = model.getTodayData();
 
   return (
     <div
@@ -50,7 +49,7 @@ const DailyScore = ({ todayScore }) => {
               innerRadius="60%"
               outerRadius="70%"
               cornerRadius="50%"
-              paddingAngle={5}
+              paddingAngle={0.1}
               startAngle={80}
               endAngle={465}
             >
@@ -62,13 +61,13 @@ const DailyScore = ({ todayScore }) => {
         <div
           style={{
             position: "absolute",
-            top: "54%",
+            top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             width: "59%",
             height: "59%",
             borderRadius: "50%",
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#ffffff",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -83,7 +82,7 @@ const DailyScore = ({ todayScore }) => {
               fontWeight: "700",
             }}
           >
-            {todayScore * 100}%
+            {model.getScorePercentage()}%
           </span>
 
           <span
