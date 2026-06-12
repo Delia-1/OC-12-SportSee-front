@@ -15,12 +15,14 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar__content">
         {sportTiles.map((tile, index) => (
-          <img
-            key={`${index}-${tile.name}`}
-            className="sidebar__tile"
-            src={tile.icon}
-            alt={`${tile.name} icon`}
-          />
+          <a className="sidebar__link" href="" key={`${index}-${tile.name}`}>
+            <img
+              // key={`${index}-${tile.name}`}
+              className="sidebar__tile"
+              src={tile.icon}
+              alt={`${tile.name} icon`}
+            />
+          </a>
         ))}
       </div>
       <small className="sidebar__copyright">Copiryght, SportSee 2020</small>
