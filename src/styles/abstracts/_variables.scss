@@ -80,9 +80,9 @@ $welcome-height: 10rem;
 $welcome-height-tablet: 8rem;
 
 // Main Layout
-$main-padding-desktop: 2.8em 5em 2.8em 6.7em; // Keep em for relative scaling
-$main-padding-tablet: 2.5em 4em; // Keep em for relative scaling
-$graphs-container-height: 20em; // Keep em for relative scaling
+$main-padding-desktop: 2.8em 5em 2.8em 6.7em;
+$main-padding-tablet: 2.5em 4em;
+$graphs-container-height: 20em;
 
 // Error Page
 $error-margin: 8rem;
@@ -90,9 +90,9 @@ $error-title-size: 2.5rem; // 40px
 $error-message-size: 2rem; // 32px
 
 // Global
-$html-font-size: 16px; // Root font-size (1rem = 16px)
+$html-font-size: 16px;
 
-// DIMENSIONS - Component Sizes (legacy em - convert gradually)
+// DIMENSIONS - Component Sizes
 $footer-height-tablet: 13em;
 $banner-height-tablet: 6.9375rem;
 $banner-height-desktop: 13.5rem;
@@ -116,7 +116,7 @@ $text-tertiary: #74798c;
 $card-bg: #fbfbfb;
 $overlay-light: #00000005;
 
-// BREAKPOINTS (px for media queries)
+// BREAKPOINTS
 $breakpoint-tablet: 768px;
 $breakpoint-tablet-lg: 1200px;
 $breakpoint-desktop: 1280px;

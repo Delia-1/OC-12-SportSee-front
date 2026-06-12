@@ -7,7 +7,7 @@ const ErrorPage = ({ errorType = "api" }) => {
   return (
     <div className="error">
       <h1 className="error__title">
-        {copy.oups}
+        {copy.oooops}
         <span className="error__title--span">{copy.error}</span>
       </h1>
       <p className="error__message">{message}</p>

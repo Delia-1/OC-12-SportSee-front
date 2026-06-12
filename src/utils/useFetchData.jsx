@@ -15,9 +15,9 @@ export function useFetchData(userId, isMockedApi, mockFetcher, apiFetcher) {
           : await apiFetcher(userId);
 
         setData(result);
-      } catch (err) {
-        setError(err);
-        navigate("/errorpage");
+      } catch (error) {
+        setError(error);
+        throw error;
       } finally {
         setLoading(false);
       }

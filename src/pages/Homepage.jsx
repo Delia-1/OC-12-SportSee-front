@@ -25,10 +25,11 @@ const Homepage = () => {
   } = useFetchData(userId, isMockedApi, getUser, getUserByApi);
 
   if (loading && !user) return <p>{copy.loading}</p>;
-  if (error) return <ErrorPage errorType="api"/>;
+  if (error) {
+    return <ErrorPage errorType="api" />;
+  }
   if (!user?.userInfos?.firstName) {
-    console.log("utilisateur introuvable ou données invalides");
-     return <ErrorPage errorType="user" />;
+    return <ErrorPage errorType="user" />;
   }
 
   const model = new HomepageModel(user);

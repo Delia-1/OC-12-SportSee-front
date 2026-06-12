@@ -1,7 +1,5 @@
 import copy from "../utils/copy.json";
 const Welcome = ({ userFirstName }) => {
-  // const userFirstName = user.userInfos.firstName;
-
   return (
     <div className="welcome">
       <h1 className="welcome__title">

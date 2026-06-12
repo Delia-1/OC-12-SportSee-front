@@ -3,8 +3,8 @@
   "noData": "Aucune donnée trouvée",
   "hello": "Bonjour",
   "congratsMessage": "Félicitation ! Vous avez explosé vos objectifs hier 👏",
-  "oups": "Oups, ",
-  "error": "une ereur est survenue",
+  "oooops": "Oups, ",
+  "error": "une erreur est survenue",
   "ErrorMessageApi": "Le serveur ne répond pas, merci de réessayer plus tard",
   "ErrorMessageUser": "L'utilisateur n'est pas reconnu, merci de réessayer",
 

@@ -17,7 +17,6 @@ const Sidebar = () => {
         {sportTiles.map((tile, index) => (
           <a className="sidebar__link" href="" key={`${index}-${tile.name}`}>
             <img
-              // key={`${index}-${tile.name}`}
               className="sidebar__tile"
               src={tile.icon}
               alt={`${tile.name} icon`}
