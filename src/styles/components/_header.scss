@@ -3,14 +3,14 @@
 
 .header {
   @include flex-center-between;
-  padding: 17px 88px 12px 29px;
+  padding: $header-padding;
   background-color: $bg-dark;
   gap: 2rem;
 
   &__logo-wrapper {
-    width: 178px;
-    min-width: 178px;
-    height: 61px;
+    width: $header-logo-width;
+    min-width: $header-logo-width;
+    height: $header-logo-height;
   }
 
   &__logo {
@@ -20,7 +20,7 @@
 
   &__nav {
     @include flex-center-between;
-    width: 75.5%;
+    width: $header-nav-width;
   }
 
   &__navLink {

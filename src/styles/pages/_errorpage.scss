@@ -2,10 +2,10 @@
 @use "../abstracts/mixins" as *;
 
 .error {
-  margin: 8rem;
+  margin: $error-margin;
 
   &__title {
-    font-size: 40px;
+    font-size: $error-title-size;
     color: $red;
 
     &--span {
@@ -14,7 +14,7 @@
   }
 
   &__message {
-    font-size: 32px;
+    font-size: $error-message-size;
     font-weight: 500;
   }
 }

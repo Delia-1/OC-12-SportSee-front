@@ -4,13 +4,13 @@
 .weight-chart {
   background-color: $card-bg;
   padding-bottom: 2rem;
-  padding: 24px 0px 24px 4px;
+  padding: $chart-padding;
 }
 .title {
-  font-size: 15px;
+  font-size: $font-size-chart;
   font-weight: 500;
   color: $text-dark;
-  margin-left: 30px;
+  margin-left: $margin-chart-title;
 }
 
 .custom-tooltip-activity {
@@ -24,9 +24,9 @@
 }
 
 .custom-tooltip-activity p {
-  padding: 5px;
+  padding: $padding-chart-item;
   margin: 0;
-  font-size: 7px;
+  font-size: $font-size-2sm;
   font-family: $font-text;
 }
 
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: $margin-chart-bottom;
   margin-inline-end: 1.5rem;
 }
 
@@ -51,14 +51,14 @@
   }
 
   &__black-dot {
-    width: 8px;
-    height: 8px;
+    width: $chart-dot-size;
+    height: $chart-dot-size;
     border-radius: 50%;
     background-color: $text-secondary;
   }
   &__red-dot {
-    width: 8px;
-    height: 8px;
+    width: $chart-dot-size;
+    height: $chart-dot-size;
     border-radius: 50%;
     background-color: $red;
   }
@@ -69,7 +69,6 @@
     margin: 0;
   }
 }
-
 .recharts-wrapper * {
   outline: none;
 }

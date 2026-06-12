@@ -13,7 +13,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 2.8em 5em 2.8em 6.7em;
+  padding: $main-padding-desktop;
   gap: 2em;
   flex: 1;
   min-height: 0;
@@ -21,10 +21,10 @@ main {
   overflow-x: hidden;
 
   @media screen and (max-width: $breakpoint-tablet-lg) {
-    padding: 2.5em 4em;
+    padding: $main-padding-tablet;
   }
 }
 
 .graphs-container {
-  height: 20em;
+  height: $graphs-container-height;
 }

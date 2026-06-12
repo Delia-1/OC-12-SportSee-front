@@ -7,20 +7,20 @@
   align-items: center;
   justify-content: flex-end;
   padding: 0 1.66rem;
-  width: 117px;
+  width: $sidebar-width;
   height: 100%;
   background-color: $bg-dark;
   overflow: hidden;
   min-height: stretch;
-  gap: 24%;
+  gap: $sidebar-gap;
   flex-shrink: 0;
 
   &__content {
-    padding-top: 6%;
+    padding-top: $sidebar-padding-top;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    width: 64px;
+    width: $sidebar-item-width;
   }
 
   &__link {
@@ -28,15 +28,15 @@
     text-decoration: none;
   }
   &__tile {
-    width: 64px;
+    width: $sidebar-item-width;
   }
 
   &__copyright {
     transform: rotate(270deg);
     color: $white;
-    font-size: 12px;
+    font-size: $font-size-xs;
     font-weight: 500;
     white-space: nowrap;
-    margin-bottom: 7.5rem;
+    margin-bottom: $sidebar-copyright-mb;
   }
 }

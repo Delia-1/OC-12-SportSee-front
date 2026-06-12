@@ -2,11 +2,11 @@
 @use "../abstracts/mixins" as *;
 
 .welcome {
-  width: 80%;
-  height: 10rem;
+  width: $welcome-width;
+  height: $welcome-height;
 
   @media screen and (max-width: $breakpoint-tablet-lg) {
-    height: 8rem;
+    height: $welcome-height-tablet;
   }
 
   &__title {

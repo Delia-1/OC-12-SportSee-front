@@ -19,6 +19,12 @@ $font-size-2xl: 3rem; // 48px
 $font-size-3xl: 6rem; // 96px
 $font-size-4xl: 18rem; // 288px (error page)
 
+// TYPOGRAPHY SCALE - Additional (for components)
+$font-size-2xs: 0.4375rem; // 7px
+$font-size-2sm: 0.5rem; // 8px
+$font-size-chart: 0.9375rem; // 15px
+$font-size-card-value: 1.25rem; // 20px
+
 // SPACING SCALE
 $spacing-xxs: 0.38rem; // 6.8px
 $spacing-xs: 0.4375rem; // 7px
@@ -34,12 +40,64 @@ $spacing-4xl: 3.6rem; // 57.6px
 $spacing-5xl: 5rem; // 80px
 $spacing-6xl: 6rem; // 96px
 
-// DIMENSIONS (rem)
-$footer-height-mobile: 13em;
-$banner-height-mobile: 6.9375rem;
+// DIMENSIONS - Component Sizes (rem)
+// Header
+$header-logo-width: 11.125rem; // 178px
+$header-logo-height: 3.8125rem; // 61px
+$header-nav-width: 75.5%; // Responsive
+$header-padding: 1.0625rem 5.5rem 0.75rem 1.8125rem; // 17px 88px 12px 29px
+
+// Sidebar
+$sidebar-width: 7.3125rem; // 117px
+$sidebar-item-width: 4rem; // 64px
+$sidebar-gap: 24%;
+$sidebar-padding-top: 6%;
+$sidebar-copyright-mb: 7.5rem;
+
+// Cards & Charts
+$card-width: 16.125rem; // 258px
+$card-height: 7.75rem; // 124px
+$card-width-tablet: 11.25rem; // 180px
+$card-height-tablet: 9.375rem; // 150px
+$chart-width: 16.125rem; // 258px
+$chart-height: 16.4375rem; // 263px
+
+// Chart Details
+$chart-padding: 1.5rem 0 1.5rem 0.25rem; // 24px 0px 24px 4px
+$chart-tooltip-width: 2.4375rem; // 39px
+$chart-tooltip-height: 1.5625rem; // 25px
+$chart-tooltip-size: 0.5rem; // 8px
+$chart-dot-size: 0.5rem; // 8px
+
+// Spacing - Component Specific
+$margin-chart-title: 1.875rem; // 30px
+$margin-chart-bottom: 2em; // Keep em for relative scaling
+$padding-chart-item: 0.3125rem; // 5px
+
+// Welcome Section
+$welcome-width: 80%;
+$welcome-height: 10rem;
+$welcome-height-tablet: 8rem;
+
+// Main Layout
+$main-padding-desktop: 2.8em 5em 2.8em 6.7em; // Keep em for relative scaling
+$main-padding-tablet: 2.5em 4em; // Keep em for relative scaling
+$graphs-container-height: 20em; // Keep em for relative scaling
+
+// Error Page
+$error-margin: 8rem;
+$error-title-size: 2.5rem; // 40px
+$error-message-size: 2rem; // 32px
+
+// Global
+$html-font-size: 16px; // Root font-size (1rem = 16px)
+
+// DIMENSIONS - Component Sizes (legacy em - convert gradually)
+$footer-height-tablet: 13em;
+$banner-height-tablet: 6.9375rem;
 $banner-height-desktop: 13.5rem;
 $slideshow-height-desktop: 25.9375rem;
-$card-height-mobile: 16em;
+$card-height-tablet-legacy: 16em;
 $card-height-desktop: 21em;
 $error-message-mt-desktop: 11rem;
 

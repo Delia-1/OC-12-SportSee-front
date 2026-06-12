@@ -4,17 +4,17 @@
 .nutrition-card {
   display: flex;
   align-items: center;
-  width: 258px;
-  height: 124px;
+  width: $card-width;
+  height: $card-height;
   padding: 2em;
   background-color: $overlay-light;
   gap: 1.6rem;
 
   @media screen and (max-width: $breakpoint-tablet-lg) {
-    width: 180px;
+    width: $card-width-tablet;
     flex-direction: column;
     gap: 1rem;
-    height: 150px;
+    height: $card-height-tablet;
     padding: 1em;
   }
 
@@ -43,7 +43,7 @@
     }
 
     .amount {
-      font-size: 20px;
+      font-size: $font-size-card-value;
       font-weight: 700;
       color: $text-secondary;
     }
