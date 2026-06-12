@@ -5,7 +5,7 @@
   width: 80%;
   height: 10rem;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: $breakpoint-tablet-lg) {
     height: 8rem;
   }
 

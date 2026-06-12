@@ -2,9 +2,7 @@
 @use "../abstracts/mixins" as *;
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-center-between;
   padding: 17px 88px 12px 29px;
   background-color: $bg-dark;
   gap: 2rem;
@@ -21,10 +19,8 @@
   }
 
   &__nav {
-    display: flex;
-    align-items: center;
+    @include flex-center-between;
     width: 75.5%;
-    justify-content: space-between;
   }
 
   &__navLink {

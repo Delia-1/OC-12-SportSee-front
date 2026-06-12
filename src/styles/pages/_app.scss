@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 .horizontal-container {
   display: flex;
   width: 100%;
@@ -17,12 +20,11 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
 
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: $breakpoint-tablet-lg) {
     padding: 2.5em 4em;
   }
 }
 
 .graphs-container {
-  border: solid 2px purple;
   height: 20em;
 }

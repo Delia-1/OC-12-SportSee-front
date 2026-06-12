@@ -2,18 +2,16 @@
 @use "../../abstracts/mixins" as *;
 
 .graph-card {
-  border: 1px solid black;
+  border: 1px solid $black;
   width: 258px;
   height: 263px;
 }
 .custom-tooltip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
+  @include flex-center-row;
+  background-color: $white;
   width: 39px;
   height: 25px;
-  color: #000000;
+  color: $black;
   margin: -10px 5px;
 
   p {

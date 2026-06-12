@@ -2,14 +2,14 @@
 @use "../../abstracts/mixins" as *;
 
 .weight-chart {
-  background-color: #fbfbfb;
+  background-color: $card-bg;
   padding-bottom: 2rem;
   padding: 24px 0px 24px 4px;
 }
 .title {
   font-size: 15px;
   font-weight: 500;
-  color: #20253a;
+  color: $text-dark;
   margin-left: 30px;
 }
 
@@ -20,7 +20,7 @@
   color: $white;
   text-align: center;
   height: 63px;
-  background-color: #e60000;
+  background-color: $red;
 }
 
 .custom-tooltip-activity p {
@@ -46,8 +46,7 @@
   align-items: center;
 
   &__infos {
-    display: flex;
-    align-items: center;
+    @include flex-center-row;
     gap: 0.6rem;
   }
 
@@ -55,18 +54,18 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #282d30;
+    background-color: $text-secondary;
   }
   &__red-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #e60000;
+    background-color: $red;
   }
 
   &__text {
     font-size: 14px;
-    color: #74798c;
+    color: $text-tertiary;
     margin: 0;
   }
 }

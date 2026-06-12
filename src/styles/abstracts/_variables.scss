@@ -44,10 +44,21 @@ $card-height-desktop: 21em;
 $error-message-mt-desktop: 11rem;
 
 // RADIUS
+$radius-xs: 6px;
 $radius-sm: 5px;
 $radius-md: 10px;
 $radius-lg: 25px;
 
+// TEXT COLORS
+$text-dark: #20253a;
+$text-secondary: #282d30;
+$text-tertiary: #74798c;
+
+// BACKGROUNDS & OVERLAYS
+$card-bg: #fbfbfb;
+$overlay-light: #00000005;
+
 // BREAKPOINTS (px for media queries)
 $breakpoint-tablet: 768px;
+$breakpoint-tablet-lg: 1200px;
 $breakpoint-desktop: 1280px;
