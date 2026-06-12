@@ -3,16 +3,30 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
 import App from "./pages/App.jsx";
 import Homepage from "./pages/Homepage.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 import "./styles/main.scss";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: (
+      <App>
+        <ErrorPage />
+      </App>
+    ),
     children: [
       {
         path: "user/:userId",
         element: <Homepage />,
+      },
+      {
+        path: "errorpage",
+        element: <ErrorPage />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

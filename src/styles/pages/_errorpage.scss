@@ -1,0 +1,21 @@
+// @use "../abstracts/variables" as *;
+// @use "../abstracts/mixins" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts//variables" as *;
+.error {
+  margin: 8rem;
+
+  &__title {
+    font-size: 40px;
+    color: red;
+
+    &--span {
+      color: black;
+    }
+  }
+
+  &__message {
+    font-size: 32px;
+    font-weight: 500;
+  }
+}

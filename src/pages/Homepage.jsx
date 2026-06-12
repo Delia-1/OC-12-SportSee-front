@@ -11,6 +11,7 @@ import AverageSession from "../components/graphs/AverageSessions";
 import ActivityRadar from "../components/graphs/ActivityRadar";
 import DailyScore from "../components/graphs/DailyScore";
 import Nutrition from "../components/Nutrition";
+import ErrorPage from "./ErrorPage";
 
 const Homepage = () => {
   const { userId } = useParams();
@@ -24,7 +25,11 @@ const Homepage = () => {
   } = useFetchData(userId, isMockedApi, getUser, getUserByApi);
 
   if (loading && !user) return <p>{copy.loading}</p>;
-  if (error) return <p>{copy.noData}</p>;
+  if (error) return <ErrorPage errorType="api"/>;
+  if (!user?.userInfos?.firstName) {
+    console.log("utilisateur introuvable ou données invalides");
+     return <ErrorPage errorType="user" />;
+  }
 
   const model = new HomepageModel(user);
 
